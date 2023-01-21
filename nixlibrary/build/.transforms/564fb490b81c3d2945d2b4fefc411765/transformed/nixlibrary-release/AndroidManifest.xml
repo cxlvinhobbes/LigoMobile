@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.nix.nixsensor_lib"
+    android:versionCode="1038"
+    android:versionName="3.2.3" >
+
+    <uses-sdk
+        android:minSdkVersion="18"
+        android:targetSdkVersion="30" />
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:fullBackupContent="@xml/nix_backup_scheme"
+        android:label="@string/app_name" >
+        <service
+            android:name="com.nix.nixsensor_lib.BluetoothLeService"
+            android:enabled="true" />
+    </application>
+
+</manifest>

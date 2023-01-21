@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="allowedNote" translatable="false">C0000</string>
+    <string name="app_name">NixLibrary</string>
+    <string name="field_cal_complete">Field calibration complete</string>
+    <string name="field_cal_scan_error">Field calibration error: scan failed with status %1$s</string>
+    <string name="field_cal_sync_error_1">Field calibration error: failed to send sync command</string>
+    <string name="field_cal_sync_error_2">Field calibration error: sync command failed with status %1$s</string>
+    <string name="field_cal_time_error_1">Field calibration error: failed to get system time</string>
+    <string name="field_cal_time_error_2">Field calibration error: timestamp update failed with status %1$s</string>
+    <string name="scan_error">Scan error: cycle exited with status %1$s</string>
+    <string name="scan_status_ambient_ok">Ambient light OK</string>
+    <string name="scan_status_empty_mode_error">Scan mode list cannot be empty</string>
+    <string name="scan_status_error_ambient_light">Ambient light detected</string>
+    <string name="scan_status_mode_error">Device does not support mode %1$s</string>
+    <string name="scan_status_next_scan">Next scan…</string>
+    <string name="scan_status_spectral_data_transfer">Requesting spectral data</string>
+    <string name="sdkUuid" translatable="false">27373e966f6e4112acb4db91f463f63b</string>
+</resources>
