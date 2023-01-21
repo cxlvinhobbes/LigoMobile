@@ -56,6 +56,9 @@ import com.nix.nixsensor_lib.NixDeviceCommon;
 import com.nix.nixsensor_lib.NixDeviceScanner;
 import com.nix.nixsensor_lib.NixScannedColor;
 import com.nix.nixsensor_lib.NixScannedSpectralData;
+
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Dictionary;
@@ -66,10 +69,9 @@ import java.util.Objects;
 
 
 
-import com.nix.nixsensor_lib.NixDeviceScanner;
-
 public class MainActivity extends AppCompatActivity {
     private static final int PERMISSION_REQUEST_BLUETOOTH = 1000;
+    TextView RGBDisplay;
     Hashtable<String,BluetoothDevice> devices;
     private NixDevice nixDevice;
 
@@ -84,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void onDeviceReady() {
-            Log.d("Nix device status:", "Ready" + nixDevice.getAddress() );
+            Log.d("Nix device(" + nixDevice.getAddress() + ")", "Ready");
         }
 
         @Override
@@ -95,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
             for(short val: scanRGB){
                 RGBValues.append(Short.toString(val) + ", ");
             }
-
+            RGBDisplay.setText(RGBValues);
             Log.d("RGB: ", RGBValues.toString());
         }
 
@@ -155,7 +157,6 @@ public class MainActivity extends AppCompatActivity {
                             // Not supported in this app ... return
                             return;
                     }
-                    Log.d("Scan Status:"," Somewhere");
                     if(devices.size() == 2){
                         nixDeviceScanner.stopDevicesScan();
                     }
@@ -206,6 +207,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        RGBDisplay = (TextView) findViewById(R.id.RGBDisplay);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M &&
                 !isBluetoothPermissionGranted(this))
